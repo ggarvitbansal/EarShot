@@ -1,0 +1,742 @@
+{
+  "facts": [
+    {
+      "id": "product_category",
+      "topic": "positioning",
+      "statement": "IOMETE is a data lakehouse platform for AI and analytics",
+      "triggers": [
+        "data lakehouse",
+        "lakehouse platform",
+        "is a lakehouse"
+      ],
+      "expect": "lakehouse",
+      "kind": "capability",
+      "source_url": "https://iomete.com/resources/getting-started/what-is-iomete",
+      "quote": "IOMETE is a state-of-the-art, fast, scalable, user-friendly Data Lakehouse Platform for AI and Analytics .",
+      "severity": "block"
+    },
+    {
+      "id": "self_hosted",
+      "topic": "deployment",
+      "statement": "IOMETE is self-hosted software that runs in the customer's own infrastructure",
+      "triggers": [
+        "self-hosted",
+        "self hosted",
+        "self-host"
+      ],
+      "expect": "self-hosted",
+      "kind": "capability",
+      "source_url": "https://iomete.com/resources/integrations/dbt/dbt-incremental-models",
+      "quote": "IOMETE is a self-hosted data lakehouse: SQL, Spark jobs, streaming and notebooks on Apache Iceberg.",
+      "severity": "block"
+    },
+    {
+      "id": "data_stays_in_customer_infra",
+      "topic": "sovereignty",
+      "statement": "No customer data leaves the customer's infrastructure",
+      "triggers": [
+        "data leaves",
+        "data is sent outside",
+        "sent outside of your organization",
+        "leaves your infrastructure"
+      ],
+      "expect": "infrastructure",
+      "kind": "capability",
+      "source_url": "https://iomete.com/resources/getting-started/what-is-iomete",
+      "quote": "The platform operates entirely within your infrastructure, ensuring that no data is sent outside of your organization.",
+      "severity": "block"
+    },
+    {
+      "id": "deploy_anywhere",
+      "topic": "deployment",
+      "statement": "IOMETE can be deployed on-premises, in the cloud, or hybrid",
+      "triggers": [
+        "deployed anywhere",
+        "deploy anywhere",
+        "on-premises, in the cloud"
+      ],
+      "expect": "hybrid",
+      "kind": "capability",
+      "source_url": "https://iomete.com/resources/getting-started/what-is-iomete",
+      "quote": "It offers flexibility and can be deployed anywhere – on-premises, in the cloud, or in a hybrid environment.",
+      "severity": "block"
+    },
+    {
+      "id": "air_gapped",
+      "topic": "deployment",
+      "statement": "IOMETE can run fully air-gapped",
+      "triggers": [
+        "air-gapped",
+        "air gapped",
+        "airgap"
+      ],
+      "expect": "air-gapped",
+      "kind": "capability",
+      "source_url": "https://iomete.com/resources/integrations/dbt/dbt-incremental-models",
+      "quote": "It runs on your own Kubernetes, on-premises, in your cloud account or air-gapped.",
+      "severity": "block"
+    },
+    {
+      "id": "compute_engine",
+      "topic": "architecture",
+      "statement": "The compute engine is Apache Spark",
+      "triggers": [
+        "compute engine",
+        "processing engine",
+        "query engine",
+        "built on databricks"
+      ],
+      "expect": "spark",
+      "kind": "entity",
+      "source_url": "https://iomete.com/resources/getting-started/what-is-iomete",
+      "quote": "IOMETE utilizes Apache Spark, a widely adopted open-source data processing engine, known for its speed and versatility.",
+      "severity": "block"
+    },
+    {
+      "id": "table_format",
+      "topic": "architecture",
+      "statement": "The lakehouse table format is Apache Iceberg",
+      "triggers": [
+        "table format",
+        "file format",
+        "delta lake",
+        "delta tables",
+        "hudi"
+      ],
+      "expect": "iceberg",
+      "kind": "entity",
+      "source_url": "https://iomete.com/resources/user-guide/compute-clusters/overview",
+      "quote": "IOMETE uses the Apache Iceberg table format for reliable ACID transactions.",
+      "severity": "block"
+    },
+    {
+      "id": "orchestration",
+      "topic": "architecture",
+      "statement": "IOMETE runs on Kubernetes",
+      "triggers": [
+        "runs on kubernetes",
+        "deployed on kubernetes",
+        "container orchestration",
+        "orchestration layer"
+      ],
+      "expect": "kubernetes",
+      "kind": "entity",
+      "source_url": "https://iomete.com/resources/getting-started/what-is-iomete",
+      "quote": "IOMETE runs on Kubernetes, providing Compute Clusters that expose SQL endpoints for querying large-scale data.",
+      "severity": "block"
+    },
+    {
+      "id": "open_table_format",
+      "topic": "architecture",
+      "statement": "The table format is open, so there is no format lock-in",
+      "triggers": [
+        "open table format",
+        "open format",
+        "proprietary format"
+      ],
+      "expect": "open",
+      "kind": "capability",
+      "source_url": "https://iomete.com/resources/reference/iceberg-tables/getting-started",
+      "quote": "Apache Iceberg is an open table format for huge analytic datasets.",
+      "severity": "block"
+    },
+    {
+      "id": "decoupled_compute_storage",
+      "topic": "architecture",
+      "statement": "Compute and storage are decoupled and scale independently",
+      "triggers": [
+        "decoupled",
+        "decoupled architecture"
+      ],
+      "expect": "decoupled",
+      "kind": "capability",
+      "source_url": "https://iomete.com/resources/getting-started/what-is-iomete",
+      "quote": "IOMETE utilizes a decoupled compute and storage architecture, which allows for the independent scaling of compute and storage.",
+      "severity": "warn"
+    },
+    {
+      "id": "s3_compatible_storage",
+      "topic": "storage",
+      "statement": "Table data lives in S3-compatible object storage, separate from compute",
+      "triggers": [
+        "s3-compatible",
+        "s3 compatible"
+      ],
+      "expect": "s3-compatible",
+      "kind": "capability",
+      "source_url": "https://iomete.com/resources/user-guide/compute-clusters/overview",
+      "quote": "Table data lives in S3-compatible object storage, separate from compute, so multiple clusters can share the same data without interfering with each other.",
+      "severity": "warn"
+    },
+    {
+      "id": "time_travel",
+      "topic": "capabilities",
+      "statement": "Iceberg tables support time travel queries to earlier snapshots",
+      "triggers": [
+        "time travel"
+      ],
+      "expect": "time travel",
+      "kind": "capability",
+      "source_url": "https://iomete.com/resources/reference/iceberg-tables/getting-started",
+      "quote": "Time travel enables reproducible queries that use exactly the same table snapshot, or lets users easily examine changes",
+      "severity": "warn"
+    },
+    {
+      "id": "query_federation",
+      "topic": "capabilities",
+      "statement": "A query federation engine queries external sources without ETL",
+      "triggers": [
+        "federation",
+        "federated query",
+        "query federation engine"
+      ],
+      "expect": "federation",
+      "kind": "capability",
+      "source_url": "https://iomete.com/resources/getting-started/what-is-iomete",
+      "quote": "Query Federation Engine : Seamlessly query data from multiple sources, including relational and NoSQL databases, and flat files without the need for complex ETL pipelines.",
+      "severity": "warn"
+    },
+    {
+      "id": "sql_editor",
+      "topic": "capabilities",
+      "statement": "There is a collaborative SQL editor with worksheets and dashboards",
+      "triggers": [
+        "sql editor",
+        "sql worksheet",
+        "query editor"
+      ],
+      "expect": "sql",
+      "kind": "capability",
+      "source_url": "https://iomete.com/resources/getting-started/what-is-iomete",
+      "quote": "Collaborative SQL Editor : Write and edit SQL queries in real-time with multiple team members simultaneously.",
+      "severity": "warn"
+    },
+    {
+      "id": "notebooks",
+      "topic": "capabilities",
+      "statement": "Jupyter notebooks run on the platform for exploration and ML",
+      "triggers": [
+        "notebook",
+        "jupyter"
+      ],
+      "expect": "notebook",
+      "kind": "capability",
+      "source_url": "https://iomete.com/resources/getting-started/what-is-iomete",
+      "quote": "Jupyter Containers : Interactive notebook environments for data exploration, ad-hoc queries, and ML development, running directly on the platform.",
+      "severity": "warn"
+    },
+    {
+      "id": "spark_jobs",
+      "topic": "capabilities",
+      "statement": "PySpark (and Scala) Spark jobs can be submitted and scheduled",
+      "triggers": [
+        "pyspark"
+      ],
+      "expect": "pyspark",
+      "kind": "capability",
+      "source_url": "https://iomete.com/resources/getting-started/architecture",
+      "quote": "You can submit Scala or PySpark jobs, schedule them with the Job Orchestrator , and monitor execution through the console.",
+      "severity": "warn"
+    },
+    {
+      "id": "event_stream",
+      "topic": "capabilities",
+      "statement": "Event Stream ingests JSON over HTTP into Iceberg tables without Kafka",
+      "triggers": [
+        "event stream",
+        "event ingestion"
+      ],
+      "expect": "event stream",
+      "kind": "capability",
+      "source_url": "https://iomete.com/resources/user-guide/event-stream",
+      "quote": "Event Stream is a real-time event ingestion service that receives events and continuously makes them available in Apache Iceberg tables in near real time.",
+      "severity": "warn"
+    },
+    {
+      "id": "dbt_adapter",
+      "topic": "integrations",
+      "statement": "There is a native dbt adapter, dbt-iomete",
+      "triggers": [
+        "dbt adapter",
+        "dbt integration",
+        "dbt-iomete",
+        "dbt models"
+      ],
+      "expect": "dbt",
+      "kind": "entity",
+      "source_url": "https://iomete.com/resources/integrations/dbt/getting-started-with-iomete-dbt",
+      "quote": "The dbt-iomete adapter wires dbt into your IOMETE lakehouse with full Iceberg support, so you get versioned transformations on top of open table formats.",
+      "severity": "warn"
+    },
+    {
+      "id": "airflow_integration",
+      "topic": "integrations",
+      "statement": "Airflow integration ships as the iomete-airflow-plugin",
+      "triggers": [
+        "airflow"
+      ],
+      "expect": "airflow",
+      "kind": "entity",
+      "source_url": "https://iomete.com/resources/integrations/airflow/examples",
+      "quote": "The complete source examples are available in the iomete-airflow-plugin repository .",
+      "severity": "warn"
+    },
+    {
+      "id": "prefect_orchestrator",
+      "topic": "integrations",
+      "statement": "Job Orchestrator scheduling is powered by Prefect",
+      "triggers": [
+        "prefect"
+      ],
+      "expect": "prefect",
+      "kind": "entity",
+      "source_url": "https://iomete.com/resources/getting-started/architecture",
+      "quote": "If you need scheduled, dependency-aware Spark job execution, the Job Orchestrator (powered by Prefect ) adds workflow scheduling:",
+      "severity": "warn"
+    },
+    {
+      "id": "bi_tableau",
+      "topic": "integrations",
+      "statement": "Tableau connects over JDBC/ODBC, Spark Connect or Arrow Flight",
+      "triggers": [
+        "tableau"
+      ],
+      "expect": "tableau",
+      "kind": "entity",
+      "source_url": "https://iomete.com/resources/getting-started/what-is-iomete",
+      "quote": "You can connect BI and data science tools such as Tableau and Jupyter to IOMETE via JDBC/ODBC, Spark Connect, or Arrow Flight protocol.",
+      "severity": "warn"
+    },
+    {
+      "id": "bi_powerbi",
+      "topic": "integrations",
+      "statement": "Power BI has a dedicated IOMETE connector and Arrow Flight ODBC driver",
+      "triggers": [
+        "power bi",
+        "powerbi"
+      ],
+      "expect": "power bi",
+      "kind": "entity",
+      "source_url": "https://iomete.com/resources/integrations/bi/power-bi/arrow-flight",
+      "quote": "The IOMETE Power BI connector connects Power BI to IOMETE through the IOMETE Arrow Flight SQL ODBC driver.",
+      "severity": "warn"
+    },
+    {
+      "id": "sso_saml",
+      "topic": "security",
+      "statement": "SSO supports SAML 2.0",
+      "triggers": [
+        "saml 2.0",
+        "saml2",
+        "saml 2"
+      ],
+      "expect": "saml 2.0",
+      "kind": "entity",
+      "source_url": "https://iomete.com/resources/user-guide/single-sign-on",
+      "quote": "SSO supports using either SAML 2.0 or OpenID Connect (OIDC) .",
+      "severity": "warn"
+    },
+    {
+      "id": "sso_oidc",
+      "topic": "security",
+      "statement": "SSO supports OpenID Connect (OIDC)",
+      "triggers": [
+        "oidc",
+        "openid connect"
+      ],
+      "expect": "oidc",
+      "kind": "entity",
+      "source_url": "https://iomete.com/resources/user-guide/single-sign-on",
+      "quote": "SSO supports using either SAML 2.0 or OpenID Connect (OIDC) .",
+      "severity": "warn"
+    },
+    {
+      "id": "ldap",
+      "topic": "security",
+      "statement": "LDAP directory sync is supported",
+      "triggers": [
+        "ldap"
+      ],
+      "expect": "ldap",
+      "kind": "entity",
+      "source_url": "https://iomete.com/resources/getting-started/architecture",
+      "quote": "LDAP integration : connects to your existing directory service",
+      "severity": "warn"
+    },
+    {
+      "id": "rbac",
+      "topic": "security",
+      "statement": "Role-based access control is enforced through roles and resource bundles",
+      "triggers": [
+        "rbac",
+        "role-based access control"
+      ],
+      "expect": "rbac",
+      "kind": "capability",
+      "source_url": "https://iomete.com/resources/user-guide/spark-catalogs/overview",
+      "quote": "They seamlessly integrate with existing data security rules to enforce role-based access control (RBAC).",
+      "severity": "warn"
+    },
+    {
+      "id": "column_masking",
+      "topic": "security",
+      "statement": "Column-level data masking policies are supported",
+      "triggers": [
+        "column masking",
+        "column-level masking",
+        "data masking",
+        "masking policy"
+      ],
+      "expect": "masking",
+      "kind": "capability",
+      "source_url": "https://iomete.com/resources/getting-started/architecture",
+      "quote": "Ranger policies are managed through the Identity Service and control row-level filtering, column masking, and table-level permissions.",
+      "severity": "block"
+    },
+    {
+      "id": "row_level_filter",
+      "topic": "security",
+      "statement": "Row-level security filters limit which rows a user can see",
+      "triggers": [
+        "row-level"
+      ],
+      "expect": "row-level",
+      "kind": "capability",
+      "source_url": "https://iomete.com/resources/user-guide/data-security/overview",
+      "quote": "Row-level filtering limits who can see certain rows in a database.",
+      "severity": "block"
+    },
+    {
+      "id": "ranger_enforcement",
+      "topic": "security",
+      "statement": "Apache Ranger policies are enforced on every data access request",
+      "triggers": [
+        "ranger"
+      ],
+      "expect": "ranger",
+      "kind": "entity",
+      "source_url": "https://iomete.com/resources/getting-started/architecture",
+      "quote": "Every data request passes through Apache Ranger policy enforcement, so access control stays consistent no matter how data is queried.",
+      "severity": "warn"
+    },
+    {
+      "id": "table_compaction",
+      "topic": "operations",
+      "statement": "Table maintenance compacts small files, expires snapshots and removes orphan files",
+      "triggers": [
+        "compaction",
+        "compact"
+      ],
+      "expect": "compaction",
+      "kind": "capability",
+      "source_url": "https://iomete.com/resources/open-source-spark-jobs/data-compaction",
+      "quote": "The Data Compaction Job cleans them up on a schedule.",
+      "severity": "warn"
+    },
+    {
+      "id": "health_check_interval",
+      "topic": "operations",
+      "statement": "Health checks run every 10 seconds and keep 48 hours of history",
+      "triggers": [
+        "health check",
+        "health checks"
+      ],
+      "expect": "10",
+      "kind": "number",
+      "source_url": "https://iomete.com/resources/getting-started/architecture",
+      "quote": "Checks run every 10 seconds, the service retains 48 hours of history, and status changes push to the console in real time.",
+      "severity": "warn"
+    },
+    {
+      "id": "maintenance_cooldown",
+      "topic": "operations",
+      "statement": "Table maintenance enforces a 60-minute cooldown between runs on the same table",
+      "triggers": [
+        "cooldown",
+        "maintenance interval",
+        "how often maintenance"
+      ],
+      "expect": "60",
+      "kind": "number",
+      "source_url": "https://iomete.com/resources/user-guide/table-maintenance/overview",
+      "quote": "Cooldown between runs : after each successful run, the system enforces a 60-minute cooldown before the same table and operation can be picked up again.",
+      "severity": "warn"
+    },
+    {
+      "id": "port_hiveserver2",
+      "topic": "connectivity",
+      "statement": "JDBC/ODBC (HiveServer2) listens on port 10000",
+      "triggers": [
+        "10000"
+      ],
+      "expect": "10000",
+      "kind": "number",
+      "source_url": "https://iomete.com/resources/getting-started/architecture",
+      "quote": "HiveServer2 (port 10000): JDBC /ODBC connections from BI tools, dbt , and other SQL clients",
+      "severity": "warn"
+    },
+    {
+      "id": "port_spark_connect",
+      "topic": "connectivity",
+      "statement": "Spark Connect listens on port 15002",
+      "triggers": [
+        "15002"
+      ],
+      "expect": "15002",
+      "kind": "number",
+      "source_url": "https://iomete.com/resources/getting-started/architecture",
+      "quote": "Spark Connect (port 15002): gRPC protocol for programmatic access",
+      "severity": "warn"
+    },
+    {
+      "id": "port_arrow_flight",
+      "topic": "connectivity",
+      "statement": "Arrow Flight listens on port 33333",
+      "triggers": [
+        "33333"
+      ],
+      "expect": "33333",
+      "kind": "number",
+      "source_url": "https://iomete.com/resources/getting-started/architecture",
+      "quote": "Arrow Flight (port 33333): high-performance gRPC data transfer (when enabled)",
+      "severity": "warn"
+    },
+    {
+      "id": "multi_cluster_version",
+      "topic": "deployment",
+      "statement": "Multi-cluster deployments are supported since version 3.16.x",
+      "triggers": [
+        "3.16"
+      ],
+      "expect": "3.16",
+      "kind": "number",
+      "source_url": "https://iomete.com/resources/deployment/multi-cluster-setup",
+      "quote": "Starting from version 3.16.x , IOMETE supports multi-cluster deployments.",
+      "severity": "warn"
+    },
+    {
+      "id": "multi_region",
+      "topic": "deployment",
+      "statement": "Enterprise Edition supports multi-region deployment from one control plane",
+      "triggers": [
+        "multi-region",
+        "multiregion"
+      ],
+      "expect": "multi-region",
+      "kind": "capability",
+      "source_url": "https://iomete.com/resources/getting-started/what-is-iomete",
+      "quote": "Multi-Region Support : Enterprise Edition features multi-region deployment for disaster recovery and high availability.",
+      "severity": "warn"
+    },
+    {
+      "id": "absence_onprem",
+      "topic": "deployment",
+      "statement": "On-premises deployment is supported (rep claiming it is not)",
+      "triggers": [
+        "doesn't support on-prem",
+        "does not support on-premises",
+        "no on-prem",
+        "cloud only",
+        "cannot run on-prem",
+        "can't run on-prem",
+        "can't run this on-prem",
+        "not supported on-prem"
+      ],
+      "expect": "on-premises",
+      "kind": "absence",
+      "source_url": "https://iomete.com/resources/getting-started/what-is-iomete",
+      "quote": "Flexible Deployment : You can deploy IOMETE anywhere, whether it's on-premises, in the cloud, or in a hybrid environment, providing you with the flexibility to choose the environment that suits your needs.",
+      "severity": "block"
+    },
+    {
+      "id": "absence_sso",
+      "topic": "security",
+      "statement": "SSO/SAML is supported (rep claiming there is no SSO)",
+      "triggers": [
+        "no sso",
+        "doesn't support sso",
+        "no saml",
+        "no single sign-on",
+        "can't do sso",
+        "no sso support"
+      ],
+      "expect": "saml 2.0",
+      "kind": "absence",
+      "source_url": "https://iomete.com/resources/user-guide/single-sign-on",
+      "quote": "SSO supports using either SAML 2.0 or OpenID Connect (OIDC) .",
+      "severity": "block"
+    },
+    {
+      "id": "absence_column_masking",
+      "topic": "security",
+      "statement": "Column masking exists (rep claiming only table-level security)",
+      "triggers": [
+        "no column masking",
+        "table-level only",
+        "table level only"
+      ],
+      "expect": "column masking",
+      "kind": "absence",
+      "source_url": "https://iomete.com/resources/getting-started/architecture",
+      "quote": "Ranger policies are managed through the Identity Service and control row-level filtering, column masking, and table-level permissions.",
+      "severity": "block"
+    }
+  ],
+  "antifacts": [
+    {
+      "id": "delta_lake_claim",
+      "wrong_pattern": [
+        "delta lake",
+        "delta tables",
+        "built on delta",
+        "delta format"
+      ],
+      "wrong": "says IOMETE is built on Delta Lake",
+      "correction": "IOMETE's lakehouse table format is Apache Iceberg, an open table format. Delta Lake is a different, Databricks-backed format and appears in the Enterprise Catalog only as planned support, not as the foundation of the platform.",
+      "source_url": "https://iomete.com/resources/user-guide/compute-clusters/overview",
+      "quote": "IOMETE uses the Apache Iceberg table format for reliable ACID transactions.",
+      "severity": "block"
+    },
+    {
+      "id": "saas_cloud_claim",
+      "wrong_pattern": [
+        "saas",
+        "fully managed",
+        "managed service",
+        "hosted by iomete"
+      ],
+      "wrong": "says IOMETE is a fully managed SaaS where the customer's data sits in IOMETE's cloud",
+      "correction": "IOMETE is self-hosted software that runs inside the customer's own Kubernetes and object storage; the docs state the platform operates entirely within your infrastructure and that no data is sent outside your organization.",
+      "source_url": "https://iomete.com/resources/getting-started/what-is-iomete",
+      "quote": "The platform operates entirely within your infrastructure, ensuring that no data is sent outside of your organization.",
+      "severity": "block"
+    },
+    {
+      "id": "data_leaves_network_claim",
+      "wrong_pattern": [
+        "data has to leave",
+        "data must leave",
+        "public internet",
+        "requires internet access"
+      ],
+      "wrong": "says the customer's data has to leave their network or that public internet access is required",
+      "correction": "IOMETE runs on your own Kubernetes, on-premises, in your cloud account or air-gapped, so nothing in the architecture requires sending data to IOMETE or reaching the public internet.",
+      "source_url": "https://iomete.com/resources/integrations/dbt/dbt-incremental-models",
+      "quote": "It runs on your own Kubernetes, on-premises, in your cloud account or air-gapped.",
+      "severity": "block"
+    },
+    {
+      "id": "open_source_free_claim",
+      "wrong_pattern": [
+        "open source project",
+        "fully open source",
+        "open-source end to end",
+        "completely open source",
+        "is free",
+        "free forever",
+        "no license cost"
+      ],
+      "wrong": "says IOMETE is an open-source project and free",
+      "correction": "IOMETE is a commercial platform (Enterprise Edition, Helm chart iomete-data-plane-enterprise). What is open source is what it is built on: Apache Spark is an open-source engine and Iceberg an open table format. There is a free plan to start, but the platform itself is not an open-source project.",
+      "source_url": "https://iomete.com/resources/getting-started/what-is-iomete",
+      "quote": "IOMETE utilizes Apache Spark, a widely adopted open-source data processing engine, known for its speed and versatility.",
+      "severity": "block"
+    },
+    {
+      "id": "bi_only_claim",
+      "wrong_pattern": [
+        "bi only",
+        "just for bi",
+        "only for bi",
+        "not for ai",
+        "no machine learning",
+        "warehouse only"
+      ],
+      "wrong": "says IOMETE is a BI/warehouse tool with no AI-ML story",
+      "correction": "IOMETE is positioned as a data lakehouse platform for AI and analytics, with Jupyter containers for ML development, Spark jobs and notebooks alongside the SQL/BI layer.",
+      "source_url": "https://iomete.com/resources/getting-started/what-is-iomete",
+      "quote": "IOMETE is a state-of-the-art, fast, scalable, user-friendly Data Lakehouse Platform for AI and Analytics .",
+      "severity": "warn"
+    },
+    {
+      "id": "aws_only_claim",
+      "wrong_pattern": [
+        "aws only",
+        "only on aws",
+        "runs only on aws",
+        "s3 only"
+      ],
+      "wrong": "says IOMETE only runs on AWS",
+      "correction": "IOMETE runs on any Kubernetes cluster: any cloud provider or on-premises data center, with S3, GCS, Azure Blob/ADLS, Ozone, Dell ECS and MinIO as storage options.",
+      "source_url": "https://iomete.com/resources/getting-started/architecture",
+      "quote": "IOMETE runs on Kubernetes (any cloud provider or on-premises data center), stores data in object storage, and keeps metadata in PostgreSQL .",
+      "severity": "block"
+    },
+    {
+      "id": "proprietary_format_lockin",
+      "wrong_pattern": [
+        "proprietary format",
+        "lock you into our format",
+        "locked into iomete"
+      ],
+      "wrong": "says IOMETE locks customers into a proprietary storage format",
+      "correction": "Data is written as Apache Iceberg, an open table format with open metadata, so other engines can read the same tables; there is no proprietary file format in the lakehouse.",
+      "source_url": "https://iomete.com/resources/reference/iceberg-tables/getting-started",
+      "quote": "Apache Iceberg is an open table format for huge analytic datasets.",
+      "severity": "block"
+    },
+    {
+      "id": "kafka_required_claim",
+      "wrong_pattern": [
+        "need kafka",
+        "requires kafka",
+        "must have kafka"
+      ],
+      "wrong": "says streaming ingestion requires Kafka",
+      "correction": "Event Stream ingests JSON over an HTTP API straight into Iceberg tables in near real time, explicitly so you do not have to manage Kafka or other message queues.",
+      "source_url": "https://iomete.com/resources/user-guide/event-stream",
+      "quote": "Event Stream is a real-time event ingestion service that receives events and continuously makes them available in Apache Iceberg tables in near real time.",
+      "severity": "warn"
+    },
+    {
+      "id": "no_finegrained_security_claim",
+      "wrong_pattern": [
+        "no column masking",
+        "no row-level",
+        "no fine-grained",
+        "no row level security"
+      ],
+      "wrong": "says IOMETE only has coarse table-level security",
+      "correction": "Apache Ranger policies are enforced on every data access request and cover row-level filtering, column masking and table-level permissions, plus tag-based policies.",
+      "source_url": "https://iomete.com/resources/getting-started/architecture",
+      "quote": "Every data request passes through Apache Ranger policy enforcement, so access control stays consistent no matter how data is queried.",
+      "severity": "block"
+    },
+    {
+      "id": "single_region_claim",
+      "wrong_pattern": [
+        "single region",
+        "one region only",
+        "no multi-region"
+      ],
+      "wrong": "says IOMETE cannot run multi-region",
+      "correction": "Enterprise Edition provides a control plane plus multi-data plane architecture for multi-region deployment and disaster recovery; multi-cluster setups have been supported since version 3.16.x.",
+      "source_url": "https://iomete.com/resources/getting-started/what-is-iomete",
+      "quote": "IOMETE Enterprise Edition offers a control plane and multi-data plane architecture.",
+      "severity": "warn"
+    },
+    {
+      "id": "postgres_only_claim",
+      "wrong_pattern": [
+        "postgres only",
+        "only postgresql",
+        "no mysql"
+      ],
+      "wrong": "says the backend database must be PostgreSQL",
+      "correction": "IOMETE supports either MySQL or PostgreSQL as its backend database.",
+      "source_url": "https://iomete.com/resources/deployment/backend-databases",
+      "quote": "For optimal functionality, IOMETE supports the use of either MySQL or PostgreSQL databases.",
+      "severity": "warn"
+    }
+  ]
+}

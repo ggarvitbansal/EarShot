@@ -1,0 +1,171 @@
+{
+  "_note": "Company-level facts that live outside the /resources/ docs tree. Verified 2026-11-01 against iomete.com/about-us and the track's own starter kit PDF.",
+  "facts": [
+    {
+      "id": "founded_year",
+      "topic": "company",
+      "statement": "IOMETE was founded in 2021",
+      "triggers": [
+        "founded",
+        "founding",
+        "started in",
+        "started the company",
+        "spun up"
+      ],
+      "expect": "2021",
+      "kind": "number",
+      "source_url": "https://iomete.com/about-us",
+      "quote": "In 2021, they partnered up to start IOMETE.",
+      "severity": "block"
+    },
+    {
+      "id": "yc_cohort",
+      "topic": "company",
+      "statement": "IOMETE went through Y Combinator in early 2022",
+      "triggers": [
+        "y combinator",
+        "ycombinator",
+        "yc batch",
+        "yc w22",
+        "yc s22"
+      ],
+      "expect": "2022",
+      "kind": "number",
+      "source_url": "https://iomete.com/about-us",
+      "quote": "Together, they went through Y Combinator in early 2022 and the rest is history.",
+      "severity": "warn"
+    },
+    {
+      "id": "table_format",
+      "topic": "architecture",
+      "statement": "The table format is Apache Iceberg",
+      "triggers": [
+        "table format",
+        "tables are",
+        "tables use",
+        "built on",
+        "storage format",
+        "file format"
+      ],
+      "expect": "iceberg",
+      "kind": "entity",
+      "source_url": "https://iomete.com/resources/getting-started/scalability",
+      "quote": "IOMETE is built on Kubernetes , Apache Spark , and Apache Iceberg : three technologies designed to scale horizontally",
+      "severity": "block"
+    },
+    {
+      "id": "why_founded",
+      "topic": "architecture",
+      "statement": "The platform runs on Kubernetes and the compute engine is Apache Spark",
+      "triggers": [
+        "runs on",
+        "orchestrated by",
+        "compute engine",
+        "execution engine"
+      ],
+      "expect": "kubernetes",
+      "kind": "entity",
+      "source_url": "https://iomete.com/resources/getting-started/architecture",
+      "quote": "IOMETE is deployed on Kubernetes",
+      "severity": "warn"
+    }
+  ],
+  "antifacts": [
+    {
+      "id": "delta_lake_claim",
+      "wrong_pattern": [
+        "delta lake",
+        "delta tables",
+        "delta format"
+      ],
+      "wrong": "Says the tables are Delta Lake",
+      "correction": "The table format is Apache Iceberg, not Delta Lake. Delta is Databricks' format; IOMETE's open-format story depends on Iceberg.",
+      "source_url": "https://iomete.com/resources/getting-started/what-is-iomete",
+      "quote": "IOMETE is a state-of-the-art, fast, scalable, user-friendly Data Lakehouse Platform for AI and Analytics .",
+      "severity": "block"
+    },
+    {
+      "id": "our_cloud_claim",
+      "wrong_pattern": [
+        "control plane runs in our cloud",
+        "our cloud and only the data plane",
+        "only the data plane is in your"
+      ],
+      "wrong": "Says IOMETE's control plane runs in IOMETE's cloud",
+      "correction": "The platform operates entirely inside the customer's infrastructure. Both control plane and data plane are deployed in the customer's own Kubernetes.",
+      "source_url": "https://iomete.com/resources/getting-started/what-is-iomete",
+      "quote": "The platform operates entirely within your infrastructure, ensuring that no data is sent outside of your organization.",
+      "severity": "block"
+    },
+    {
+      "id": "saas_claim",
+      "wrong_pattern": [
+        "saas",
+        "managed service in our",
+        "hosted for you",
+        "we host it"
+      ],
+      "wrong": "Frames IOMETE as a hosted SaaS product",
+      "correction": "IOMETE is self-hosted: it deploys into the customer's own infrastructure, own cloud account, hybrid or air-gapped.",
+      "source_url": "https://iomete.com/resources/getting-started/what-is-iomete",
+      "quote": "It offers flexibility and can be deployed anywhere – on-premises, in the cloud, or in a hybrid environment.",
+      "severity": "block"
+    },
+    {
+      "id": "needs_internet_claim",
+      "wrong_pattern": [
+        "needs internet",
+        "requires internet access",
+        "has to phone home",
+        "needs to reach our",
+        "phone home",
+        "air gap needs"
+      ],
+      "wrong": "Says the platform needs public internet access to operate",
+      "correction": "A fully air-gapped deployment is a supported mode with no outbound internet.",
+      "source_url": "https://iomete.com/resources/integrations/dbt/dbt-incremental-models",
+      "quote": "It runs on your own Kubernetes, on-premises, in your cloud account or air-gapped.",
+      "severity": "block"
+    },
+    {
+      "id": "fully_open_source_claim",
+      "wrong_pattern": [
+        "one hundred percent open source",
+        "100% open source",
+        "fully open source",
+        "completely open source"
+      ],
+      "wrong": "Says the whole platform is open source and can be self-supported",
+      "correction": "The components are open source (Spark, Iceberg, Kubernetes) and the table format is open, but the public docs make no claim that the whole platform is open source or free.",
+      "source_url": "https://iomete.com/resources/getting-started/what-is-iomete",
+      "quote": "IOMETE is a state-of-the-art, fast, scalable, user-friendly Data Lakehouse Platform for AI and Analytics .",
+      "severity": "block"
+    },
+    {
+      "id": "hudi_claim",
+      "wrong_pattern": [
+        "hudi"
+      ],
+      "wrong": "Says the table layer is Apache Hudi",
+      "correction": "The table format is Apache Iceberg. Hudi is a different open table format and not part of IOMETE's platform.",
+      "source_url": "https://iomete.com/resources/getting-started/scalability",
+      "quote": "IOMETE is built on Kubernetes , Apache Spark , and Apache Iceberg : three technologies designed to scale horizontally",
+      "severity": "block"
+    },
+    {
+      "id": "proprietary_format_claim",
+      "wrong_pattern": [
+        "proprietary storage format",
+        "proprietary format",
+        "locks you into our",
+        "locked into our format",
+        "proprietary table format"
+      ],
+      "wrong": "Says the storage or table format is proprietary",
+      "correction": "Iceberg is an open table format: the data sits as standard files in the customer's own storage and stays readable without IOMETE.",
+      "source_url": "https://iomete.com/resources/getting-started/scalability",
+      "quote": "IOMETE is built on Kubernetes , Apache Spark , and Apache Iceberg : three technologies designed to scale horizontally",
+      "severity": "block"
+    }
+  ]
+}

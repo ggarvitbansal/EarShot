@@ -1,0 +1,833 @@
+{
+ "terms": [
+  {
+   "term": "lakehouse",
+   "aliases": [
+    "data lakehouse",
+    "lake house"
+   ],
+   "plain": "One system that stores every kind of company data and lets you query it like a database.",
+   "why": "One copy of data serves both reports and experiments, so nobody keeps duplicating it.",
+   "source_url": "https://iomete.com/resources/getting-started/what-is-iomete",
+   "quote": "A data lakehouse is a modern data management architecture that combines the advantages of data lakes and data warehouses."
+  },
+  {
+   "term": "data lake",
+   "aliases": [
+    "raw data lake"
+   ],
+   "plain": "A cheap store holding files of any type, with no rules or quality checks.",
+   "why": "Cheap to keep everything, but slow and risky to report from on its own.",
+   "source_url": "https://iomete.com/resources/getting-started/what-is-iomete",
+   "quote": "While a data lake stores structured and unstructured data at scale, a data lakehouse, such as IOMETE, goes a step further by incorporating data warehouse features."
+  },
+  {
+   "term": "data warehouse",
+   "aliases": [
+    "warehouse",
+    "dwh"
+   ],
+   "plain": "A tidy database built for fast business reporting, fed by copied and cleaned data.",
+   "why": "Buyers already have one, so explain how the lakehouse replaces or feeds it.",
+   "source_url": "https://iomete.com/resources/getting-started/what-is-iomete",
+   "quote": "It brings together the scalability of data lakes with the reliability, data quality, ACID transactions, and security features of data warehouses."
+  },
+  {
+   "term": "apache iceberg",
+   "aliases": [
+    "iceberg"
+   ],
+   "plain": "The free file format that makes ordinary storage behave like a reliable table.",
+   "why": "Your data stays readable by many tools, not just this one.",
+   "source_url": "https://iomete.com/resources/reference/iceberg-tables/getting-started",
+   "quote": "Apache Iceberg is an open table format for huge analytic datasets."
+  },
+  {
+   "term": "apache spark",
+   "aliases": [
+    "spark"
+   ],
+   "plain": "The free engine that does the heavy calculating when someone runs a big query.",
+   "why": "It is the horsepower behind every query and job on the platform.",
+   "source_url": "https://iomete.com/resources/getting-started/what-is-iomete",
+   "quote": "IOMETE utilizes Apache Spark, a widely adopted open-source data processing engine, known for its speed and versatility."
+  },
+  {
+   "term": "kubernetes",
+   "aliases": [
+    "k8s"
+   ],
+   "plain": "Software that runs and restarts applications across a fleet of ordinary servers.",
+   "why": "It means the platform rides on standard servers the buyer already knows how to run.",
+   "source_url": "https://iomete.com/resources/getting-started/architecture",
+   "quote": "IOMETE runs on Kubernetes (any cloud provider or on-premises data center), stores data in object storage, and keeps metadata in PostgreSQL ."
+  },
+  {
+   "term": "data sovereignty",
+   "aliases": [
+    "sovereign data",
+    "digital sovereignty"
+   ],
+   "plain": "The principle that a country's or company's rules decide where data lives and who may touch it.",
+   "why": "Regulators and security teams approve only vendors who cannot move data abroad.",
+   "source_url": "https://iomete.com/resources/getting-started/what-is-iomete",
+   "quote": "The platform operates entirely within your infrastructure, ensuring that no data is sent outside of your organization."
+  },
+  {
+   "term": "data residency",
+   "aliases": [
+    "data localisation",
+    "data localization"
+   ],
+   "plain": "The legal duty to keep data physically inside a chosen country or region.",
+   "why": "A deal dies if the buyer's regulator forbids data crossing borders.",
+   "source_url": "https://iomete.com/resources/user-guide/data-security/row-level-filter",
+   "quote": "This policy will help maintain data privacy and comply with country-specific regulations."
+  },
+  {
+   "term": "air-gapped",
+   "aliases": [
+    "air gapped",
+    "airgap",
+    "air-gap"
+   ],
+   "plain": "A network with no internet connection at all, used where security is extreme.",
+   "why": "Only software that installs fully offline sells into defence, banks and hospitals.",
+   "source_url": "https://iomete.com/resources/integrations/dbt/dbt-incremental-models",
+   "quote": "It runs on your own Kubernetes, on-premises, in your cloud account or air-gapped."
+  },
+  {
+   "term": "on-premises",
+   "aliases": [
+    "on prem",
+    "on-prem",
+    "in-house"
+   ],
+   "plain": "Software installed on servers the customer owns, usually in their own building.",
+   "why": "Buyers keep full control and reuse hardware they already paid for.",
+   "source_url": "https://iomete.com/resources/getting-started/what-is-iomete",
+   "quote": "It offers flexibility and can be deployed anywhere – on-premises, in the cloud, or in a hybrid environment."
+  },
+  {
+   "term": "self-hosted",
+   "aliases": [
+    "self hosted",
+    "self-managed"
+   ],
+   "plain": "You run the software on your own machines instead of renting it from a vendor.",
+   "why": "No third party holds the data, which is often the deciding factor.",
+   "source_url": "https://iomete.com/resources/integrations/dbt/dbt-incremental-models",
+   "quote": "IOMETE is a self-hosted data lakehouse: SQL, Spark jobs, streaming and notebooks on Apache Iceberg."
+  },
+  {
+   "term": "hybrid cloud",
+   "aliases": [
+    "hybrid",
+    "hybrid environment"
+   ],
+   "plain": "Some systems sit in a company data centre, others in a cloud provider.",
+   "why": "Most large buyers are already mixed and need one view across both.",
+   "source_url": "https://iomete.com/resources/gcp/gcs-bucket-permissions",
+   "quote": "IOMETE is a hybrid (cloud & on-premises) platform that allows users to store, manage, and analyze large amounts of data."
+  },
+  {
+   "term": "vendor lock-in",
+   "aliases": [
+    "lock-in",
+    "lock in",
+    "proprietary lock-in"
+   ],
+   "plain": "Being trapped with one supplier because moving your data out is too painful.",
+   "why": "Buyers fear it, and open files they can read elsewhere remove that fear.",
+   "source_url": "https://iomete.com/resources/deployment/storage-migration",
+   "quote": "Arrow Flight clients and external engines that use the IOMETE Iceberg REST catalog also read data straight from storage, so the endpoint must be reachable from their networks too."
+  },
+  {
+   "term": "open table format",
+   "aliases": [
+    "open format",
+    "open table formats"
+   ],
+   "plain": "A published, royalty-free way to lay out table files that any tool can read.",
+   "why": "Different tools and clouds read the same files, so the buyer stays free.",
+   "source_url": "https://iomete.com/resources/reference/iceberg-tables/getting-started",
+   "quote": "Apache Iceberg is an open table format for huge analytic datasets."
+  },
+  {
+   "term": "table format",
+   "aliases": [
+    "file format",
+    "storage format"
+   ],
+   "plain": "The rules that decide how a table's files are named, arranged and updated.",
+   "why": "It is the difference between tidy tables and a folder of loose files.",
+   "source_url": "https://iomete.com/resources/integrations/dbt/dbt-incremental-models",
+   "quote": "Incremental models are supported on Iceberg tables, the platform's default table format."
+  },
+  {
+   "term": "catalog",
+   "aliases": [
+    "spark catalog",
+    "iceberg catalog"
+   ],
+   "plain": "The index that records which tables exist and where their files are kept.",
+   "why": "Without it, tools cannot find the data or agree on what a table is.",
+   "source_url": "https://iomete.com/resources/user-guide/spark-catalogs/overview",
+   "quote": "A Spark Catalog is a component in Apache Spark that manages metadata for tables and databases within a Spark session."
+  },
+  {
+   "term": "metastore",
+   "aliases": [
+    "hive metastore",
+    "metadata store"
+   ],
+   "plain": "The shared bookkeeping service that remembers table names, columns and locations.",
+   "why": "Every tool relies on it, so losing it means losing the map to your data.",
+   "source_url": "https://iomete.com/resources/deployment/backend-databases",
+   "quote": "Data Lake Metadata: Specifically tailored for the Hive Metastore and Iceberg Metastore, this involves detailed metadata regarding data lake databases, tables, partitions, columns, and more."
+  },
+  {
+   "term": "control plane",
+   "aliases": [
+    "management plane"
+   ],
+   "plain": "The management layer that runs the console, settings and scheduling.",
+   "why": "Management can sit in one place while the actual data stays in another.",
+   "source_url": "https://iomete.com/resources/getting-started/what-is-iomete",
+   "quote": "IOMETE Enterprise Edition offers a control plane and multi-data plane architecture."
+  },
+  {
+   "term": "data plane",
+   "aliases": [
+    "data planes"
+   ],
+   "plain": "The part that stores and processes data, running inside the customer's own network.",
+   "why": "It can live in the buyer's region while management runs elsewhere.",
+   "source_url": "https://iomete.com/resources/deployment/configure-custom-dns",
+   "quote": "IOMETE Data Plane : This is the infrastructure component that handles the processing and movement of data within the IOMETE ecosystem."
+  },
+  {
+   "term": "acid transactions",
+   "aliases": [
+    "acid",
+    "acid transaction"
+   ],
+   "plain": "Changes either fully succeed or fully fail, so numbers never end up half-written.",
+   "why": "Finance can trust the reports, which raw file dumps cannot offer.",
+   "source_url": "https://iomete.com/resources/getting-started/what-is-iomete",
+   "quote": "This means you can perform operations like ACID transactions, updates, deletes, and merges within your data lakehouse environment."
+  },
+  {
+   "term": "time travel",
+   "aliases": [
+    "time-travel",
+    "as of query"
+   ],
+   "plain": "Ask the data what it looked like last Tuesday and get exactly that answer.",
+   "why": "Audits and arguments about changed reports get settled in minutes.",
+   "source_url": "https://iomete.com/resources/reference/iceberg-tables/time-travel",
+   "quote": "Apache Iceberg provides versioning and time travel capabilities, allowing users to query data as it existed at a specific point in time."
+  },
+  {
+   "term": "snapshot",
+   "aliases": [
+    "table snapshot",
+    "version"
+   ],
+   "plain": "A saved picture of the whole table after each change.",
+   "why": "Every change is recoverable and old versions can be restored quickly.",
+   "source_url": "https://iomete.com/resources/reference/iceberg-tables/maintenance",
+   "quote": "Each write to an Iceberg table creates a new snapshot , or version, of a table."
+  },
+  {
+   "term": "compaction",
+   "aliases": [
+    "table compaction",
+    "small file problem"
+   ],
+   "plain": "Housekeeping that merges thousands of tiny files into a few bigger ones.",
+   "why": "Without it, queries slow down month by month and storage costs creep up.",
+   "source_url": "https://iomete.com/resources/tutorials/compaction-cow-mor",
+   "quote": "Table compaction plays a vital role in optimizing performance by consolidating smaller data files into larger ones, which reduces overhead and enhances query efficiency."
+  },
+  {
+   "term": "copy-on-write",
+   "aliases": [
+    "cow",
+    "copy on write"
+   ],
+   "plain": "An update rewrites whole files, so reads stay fast and writes cost more.",
+   "why": "Good for tables read constantly and changed rarely.",
+   "source_url": "https://iomete.com/resources/tutorials/compaction-cow-mor",
+   "quote": "This document focuses on the behavior of table compaction operations for Copy-on-Write (COW) and Merge-on-Read (MOR) tables."
+  },
+  {
+   "term": "merge-on-read",
+   "aliases": [
+    "mor",
+    "merge on read",
+    "deletion vectors"
+   ],
+   "plain": "Updates are stored as small notes and applied the moment someone reads.",
+   "why": "Writes stay cheap and quick, at the cost of slightly slower reads.",
+   "source_url": "https://iomete.com/resources/reference/spark-4-features",
+   "quote": "With merge-on-read, format v3 tables store deletes as compact deletion vectors (Puffin files) instead of rewriting data files."
+  },
+  {
+   "term": "partitioning",
+   "aliases": [
+    "partitions",
+    "hidden partitioning"
+   ],
+   "plain": "Splitting a huge table into labelled chunks so queries skip what they do not need.",
+   "why": "Queries return in seconds instead of scanning everything you own.",
+   "source_url": "https://iomete.com/resources/getting-started/scalability",
+   "quote": "Features like hidden partitioning and metadata pruning keep query planning efficient regardless of table size."
+  },
+  {
+   "term": "z-order",
+   "aliases": [
+    "zorder",
+    "clustering",
+    "data clustering",
+    "sort order"
+   ],
+   "plain": "Physically sorting big tables on the columns people filter by, so most files are skipped.",
+   "why": "It is the tuning knob that rescues slow dashboards without buying more servers.",
+   "source_url": "https://iomete.com/resources/reference/iceberg-tables/iceberg-procedures",
+   "quote": "Data files in manifests are sorted by fields in the partition spec."
+  },
+  {
+   "term": "medallion architecture",
+   "aliases": [
+    "bronze silver gold",
+    "bronze",
+    "silver",
+    "gold layer"
+   ],
+   "plain": "A three-step habit: keep raw copies, then cleaned data, then business-ready tables.",
+   "why": "It is the standard way teams organise a warehouse, so naming it sounds fluent.",
+   "source_url": "https://iomete.com/resources/integrations/dbt/getting-started-with-iomete-dbt",
+   "quote": "dbt is an open-source tool for writing SQL models, testing them, and deploying them like any other software project."
+  },
+  {
+   "term": "etl",
+   "aliases": [
+    "extract transform load",
+    "pipeline"
+   ],
+   "plain": "Copying and cleaning data from source systems into a place you can analyse it.",
+   "why": "It is most of a data team's workload, and most of its pain.",
+   "source_url": "https://iomete.com/resources/getting-started/what-is-iomete",
+   "quote": "Query Federation Engine : Seamlessly query data from multiple sources, including relational and NoSQL databases, and flat files without the need for complex ETL pipelines."
+  },
+  {
+   "term": "elt",
+   "aliases": [
+    "extract load transform"
+   ],
+   "plain": "Load the raw data first, then clean it in place using SQL.",
+   "why": "It is how modern cloud teams work, and SQL skills already exist in-house.",
+   "source_url": "https://iomete.com/resources/integrations/dbt/getting-started-with-iomete-dbt",
+   "quote": "If your team already runs analytics with version control, tests, and CI, dbt fits the same workflow for SQL transformations."
+  },
+  {
+   "term": "cdc",
+   "aliases": [
+    "change data capture",
+    "debezium"
+   ],
+   "plain": "A live feed of every insert, update and delete happening in a source system.",
+   "why": "Keeps the warehouse current without nightly full reloads of everything.",
+   "source_url": "https://iomete.com/resources/open-source-spark-jobs/ingesting-jobs",
+   "quote": "Replicates CDC events from MySQL and PostgreSQL to Iceberg tables using Debezium Server."
+  },
+  {
+   "term": "ingest",
+   "aliases": [
+    "ingestion",
+    "data ingestion"
+   ],
+   "plain": "Getting data into the platform from wherever it is created.",
+   "why": "Nothing can be analysed until it lands here, so it is the first project.",
+   "source_url": "https://iomete.com/resources/getting-started/platform-tour",
+   "quote": "Event Streams ingest events over HTTP and write them to Apache Iceberg tables in near real time."
+  },
+  {
+   "term": "schema evolution",
+   "aliases": [
+    "schema change",
+    "add column"
+   ],
+   "plain": "You can add or rename columns without breaking reports or rewriting old files.",
+   "why": "Source systems change constantly, and nobody wants a rebuild each time.",
+   "source_url": "https://iomete.com/resources/reference/iceberg-tables/getting-started",
+   "quote": "Schema evolution supports add, drop, update, or rename, and has no side-effects"
+  },
+  {
+   "term": "predicate pushdown",
+   "aliases": [
+    "pushdown",
+    "push-down",
+    "filter pushdown"
+   ],
+   "plain": "The query sends its filters down to the source so only matching rows travel back.",
+   "why": "Far less data crosses the network, so answers arrive much sooner.",
+   "source_url": "https://iomete.com/resources/user-guide/reference/data-sources/jdbc-sources",
+   "quote": "The option to enable or disable predicate push-down into the JDBC data source."
+  },
+  {
+   "term": "execution engine",
+   "aliases": [
+    "query engine",
+    "compute engine"
+   ],
+   "plain": "The program that actually does the calculating when a query runs.",
+   "why": "It sets the speed ceiling, which is what buyers benchmark.",
+   "source_url": "https://iomete.com/resources/getting-started/architecture",
+   "quote": "Spark is the execution engine behind every query and job in IOMETE."
+  },
+  {
+   "term": "job orchestration",
+   "aliases": [
+    "orchestration",
+    "scheduler",
+    "workflow orchestration"
+   ],
+   "plain": "The scheduler deciding which data jobs run, when, and in what order.",
+   "why": "Overnight failures are usually scheduling problems, not data problems.",
+   "source_url": "https://iomete.com/resources/user-guide/spark-jobs/job-orchestrator",
+   "quote": "Jobs are submitted only when cluster capacity is available , reducing the chances of failure due to insufficient compute resources."
+  },
+  {
+   "term": "dag",
+   "aliases": [
+    "directed acyclic graph",
+    "workflow"
+   ],
+   "plain": "A diagram of tasks showing which step must finish before the next can start.",
+   "why": "It is how engineers describe dependencies, and it maps to the business process.",
+   "source_url": "https://iomete.com/resources/integrations/airflow/examples",
+   "quote": "Airflow can render job_id and config_override from parameters supplied when you trigger a DAG."
+  },
+  {
+   "term": "poc",
+   "aliases": [
+    "proof of concept",
+    "pilot",
+    "evaluation"
+   ],
+   "plain": "A short trial on your own data, proving the software works before you buy.",
+   "why": "Buyers want proof, not slides, and a two-week trial usually decides the deal.",
+   "source_url": "https://iomete.com/resources/deployment/kubernetes",
+   "quote": "Demos and POCs - Quick setup for evaluations"
+  },
+  {
+   "term": "tco",
+   "aliases": [
+    "total cost of ownership",
+    "cost of ownership"
+   ],
+   "plain": "The full cost of running something for years, not just the purchase price.",
+   "why": "Finance compares options on this, and storage bills usually dominate.",
+   "source_url": "https://iomete.com/resources/getting-started/scalability",
+   "quote": "Spending wisely on those resources takes more thought."
+  },
+  {
+   "term": "sql",
+   "aliases": [
+    "structured query language",
+    "queries"
+   ],
+   "plain": "The standard language for asking questions of data held in tables.",
+   "why": "Every analyst and dashboard tool already speaks it, so nobody retrains.",
+   "source_url": "https://iomete.com/resources/getting-started/what-is-iomete",
+   "quote": "Lakehouse Platform : Powered by Apache Spark and Apache Iceberg, it offers a robust SQL interface for data exploration and analytics, including ACID-compliant operations, schema evolution, and data versioning."
+  },
+  {
+   "term": "bi tool",
+   "aliases": [
+    "bi tools",
+    "business intelligence",
+    "dashboarding tool"
+   ],
+   "plain": "The dashboard software analysts already use, such as Power BI or Tableau.",
+   "why": "Buyers keep their existing dashboards instead of relearning a new tool.",
+   "source_url": "https://iomete.com/resources/getting-started/what-is-iomete",
+   "quote": "BI Tool Integration : Effortlessly work with major BI tools for comprehensive business intelligence experiences."
+  },
+  {
+   "term": "arrow flight",
+   "aliases": [
+    "arrow flight sql",
+    "flight sql"
+   ],
+   "plain": "A fast pipe that moves query results to dashboards without slow conversion.",
+   "why": "Big extracts land in dashboards in seconds rather than minutes.",
+   "source_url": "https://iomete.com/resources/getting-started/architecture",
+   "quote": "Arrow Flight (port 33333): high-performance gRPC data transfer (when enabled)"
+  },
+  {
+   "term": "s3-compatible storage",
+   "aliases": [
+    "s3 compatible",
+    "s3 api"
+   ],
+   "plain": "Storage that speaks the same protocol as Amazon's S3, from any vendor.",
+   "why": "The buyer can reuse existing storage instead of buying a new silo.",
+   "source_url": "https://iomete.com/resources/deployment/on-prem/install",
+   "quote": "Object storage: Apache Ozone, Dell ECS, IBM Cloud Object Storage, MinIO or any other S3-compatible storage, AWS S3, Azure Blob Storage, or Google Cloud Storage."
+  },
+  {
+   "term": "object storage",
+   "aliases": [
+    "blob storage",
+    "bucket"
+   ],
+   "plain": "Cheap, almost unlimited file storage that keeps data as whole objects.",
+   "why": "It is where nearly all the cost sits, so it drives the price conversation.",
+   "source_url": "https://iomete.com/resources/getting-started/what-is-iomete",
+   "quote": "Object Storage : A durable and available object storage system, with Apache Ozone configured for optimal performance."
+  },
+  {
+   "term": "namespace",
+   "aliases": [
+    "k8s namespace"
+   ],
+   "plain": "A named area on the servers where one team's work runs, with its own limits.",
+   "why": "Teams get their own space and budget without building separate systems.",
+   "source_url": "https://iomete.com/resources/user-guide/namespace-quotas",
+   "quote": "A namespace quota caps how much CPU, memory, storage, and how many pods the workloads in one Kubernetes namespace can use."
+  },
+  {
+   "term": "rbac",
+   "aliases": [
+    "role-based access control",
+    "role based access"
+   ],
+   "plain": "Permissions attached to job roles, so people see only what their role allows.",
+   "why": "Access reviews and audits become a list lookup rather than guesswork.",
+   "source_url": "https://iomete.com/resources/user-guide/spark-catalogs/overview",
+   "quote": "They seamlessly integrate with existing data security rules to enforce role-based access control (RBAC)."
+  },
+  {
+   "term": "column-level masking",
+   "aliases": [
+    "column masking",
+    "data masking",
+    "masking"
+   ],
+   "plain": "Sensitive fields like card numbers show as XXXX to staff who do not need them.",
+   "why": "Analysts can work on real data without ever seeing private details.",
+   "source_url": "https://iomete.com/resources/user-guide/data-security/data-masking",
+   "quote": "With this feature, you can create policies that mask or anonymize specific columns containing sensitive data, such as PII , PCI , and PHI , dynamically in the query output."
+  },
+  {
+   "term": "row-level security",
+   "aliases": [
+    "row level filter",
+    "row filter",
+    "rls"
+   ],
+   "plain": "Rules that hide certain rows, so a German team only sees German customers.",
+   "why": "One shared table can serve many countries without breaking local law.",
+   "source_url": "https://iomete.com/resources/user-guide/data-security/row-level-filter",
+   "quote": "IOMETE Row-level Filter policies allow users to access only a subset of data based on the context in which they interact with the data."
+  },
+  {
+   "term": "sso",
+   "aliases": [
+    "single sign-on",
+    "single sign on"
+   ],
+   "plain": "One company login that gets a person into every approved tool.",
+   "why": "Security teams refuse anything that creates yet another password.",
+   "source_url": "https://iomete.com/resources/user-guide/single-sign-on",
+   "quote": "Single sign-on enables you to authenticate your users using your organization’s identity provider."
+  },
+  {
+   "term": "saml",
+   "aliases": [
+    "saml 2.0"
+   ],
+   "plain": "An agreed way for a company login system to vouch for who a user is.",
+   "why": "It is the checkbox that gets past enterprise security review.",
+   "source_url": "https://iomete.com/resources/user-guide/single-sign-on",
+   "quote": "SSO supports using either SAML 2.0 or OpenID Connect (OIDC) ."
+  },
+  {
+   "term": "oidc",
+   "aliases": [
+    "openid connect",
+    "open id connect"
+   ],
+   "plain": "A newer login standard where one company account signs you into many tools.",
+   "why": "Most modern identity providers prefer it over the older standard.",
+   "source_url": "https://iomete.com/resources/user-guide/single-sign-on/oidc",
+   "quote": "With OpenID Connect (OIDC) single sign-on, users sign in to IOMETE with their account at your identity provider (IdP), such as Okta, Microsoft Entra ID, Google, or Keycloak."
+  },
+  {
+   "term": "scim",
+   "aliases": [
+    "scim 2.0"
+   ],
+   "plain": "Automatically creates and removes accounts when the HR system changes.",
+   "why": "Joiners and leavers are handled without tickets, which auditors like.",
+   "source_url": "https://iomete.com/resources/user-guide/single-sign-on/scim",
+   "quote": "System for Cross-domain Identity Management (SCIM) is a standard for automating the exchange of user identity information between identity domains, or IT systems."
+  },
+  {
+   "term": "soc 2",
+   "aliases": [
+    "soc2",
+    "soc 2 type ii"
+   ],
+   "plain": "An independent audit report proving a supplier protects customer data properly.",
+   "why": "Security teams will not sign a contract without seeing it.",
+   "source_url": "https://iomete.com/resources/deployment/storage-migration",
+   "quote": "Recommended, especially for audit or compliance requirements."
+  },
+  {
+   "term": "dora",
+   "aliases": [
+    "digital operational resilience act"
+   ],
+   "plain": "European rules forcing financial firms to prove their systems survive disruption.",
+   "why": "Banks must document supplier resilience, so evidence wins the deal.",
+   "source_url": "https://iomete.com/resources/getting-started/architecture",
+   "quote": "Checks run every 10 seconds, the service retains 48 hours of history, and status changes push to the console in real time."
+  },
+  {
+   "term": "eu ai act",
+   "aliases": [
+    "ai act",
+    "eu artificial intelligence act"
+   ],
+   "plain": "European law setting safety and transparency duties for AI systems.",
+   "why": "Buyers building AI need to show where training data lived and who could see it.",
+   "source_url": "https://iomete.com/resources/getting-started/what-is-iomete",
+   "quote": "IOMETE is a state-of-the-art, fast, scalable, user-friendly Data Lakehouse Platform for AI and Analytics ."
+  },
+  {
+   "term": "gdpr",
+   "aliases": [
+    "general data protection regulation"
+   ],
+   "plain": "European law controlling how personal data may be stored, shared and deleted.",
+   "why": "Fines are large enough that privacy rules can stop a purchase.",
+   "source_url": "https://iomete.com/resources/user-guide/data-catalog/classification-tags",
+   "quote": "This approval workflow keeps sensitive labels like PII or GDPR consistent across your catalog."
+  },
+  {
+   "term": "pii",
+   "aliases": [
+    "personally identifiable information",
+    "personal data"
+   ],
+   "plain": "Any detail that can identify a real person, such as a name, email or ID number.",
+   "why": "It is the data regulators care about, so it needs hiding by default.",
+   "source_url": "https://iomete.com/resources/user-guide/data-security/classification-best-practices",
+   "quote": "Personally identifiable information such as email, phone number, name, or address."
+  },
+  {
+   "term": "latency",
+   "aliases": [
+    "response time",
+    "query latency"
+   ],
+   "plain": "How long someone waits between asking a question and seeing the answer.",
+   "why": "Slow dashboards are the complaint that starts most replacement projects.",
+   "source_url": "https://iomete.com/resources/integrations/dbt/dbt-materializations",
+   "quote": "Views that perform heavy transformations, or stack on top of other views, are slow to query."
+  },
+  {
+   "term": "throughput",
+   "aliases": [
+    "data volume per second",
+    "ingest rate"
+   ],
+   "plain": "How much data the system can move or process in a given period.",
+   "why": "It decides whether a nightly load finishes before the business day starts.",
+   "source_url": "https://iomete.com/resources/open-source-spark-jobs/kafka-iceberg-stream",
+   "quote": "Pick driver and executor instance types that fit your throughput."
+  },
+  {
+   "term": "sla",
+   "aliases": [
+    "service level agreement",
+    "uptime guarantee"
+   ],
+   "plain": "A written promise about reliability, speed and support response times.",
+   "why": "Operations teams are measured against it, so they ask every supplier.",
+   "source_url": "https://iomete.com/resources/getting-started/what-is-iomete",
+   "quote": "This feature is invaluable for disaster recovery, high availability, and multi-region deployments."
+  },
+  {
+   "term": "node type",
+   "aliases": [
+    "node types",
+    "instance type",
+    "worker size"
+   ],
+   "plain": "A preset machine size, small or large, chosen for each piece of work.",
+   "why": "It is the dial that trades cost against speed on every workload.",
+   "source_url": "https://iomete.com/resources/user-guide/node-types/overview",
+   "quote": "A node type is a reusable template that defines CPU (in millicores) and memory (in MiB) for a Spark driver or executor."
+  },
+  {
+   "term": "executor",
+   "aliases": [
+    "worker node",
+    "workers",
+    "driver"
+   ],
+   "plain": "The machines that crunch the numbers in parallel, plus the one in charge.",
+   "why": "More of them means faster jobs, and a bigger monthly bill.",
+   "source_url": "https://iomete.com/resources/getting-started/scalability",
+   "quote": "Everything in IOMETE runs on Kubernetes, so the simplest way to add capacity is to add worker nodes."
+  },
+  {
+   "term": "spark job",
+   "aliases": [
+    "spark jobs",
+    "batch job"
+   ],
+   "plain": "A scheduled program that processes a large amount of data on its own.",
+   "why": "It is the nightly plumbing that fills the tables everyone reports on.",
+   "source_url": "https://iomete.com/resources/user-guide/spark-jobs/creating-spark-job",
+   "quote": "Each Spark Job runs as an isolated Spark application with its own driver and (optionally) executors."
+  },
+  {
+   "term": "sql query",
+   "aliases": [
+    "query",
+    "ad hoc query",
+    "interactive query"
+   ],
+   "plain": "A one-off question typed by a person and answered in seconds.",
+   "why": "This is the experience most buyers actually judge the platform on.",
+   "source_url": "https://iomete.com/resources/user-guide/compute-clusters/overview",
+   "quote": "Since storage and compute are decoupled, you can size each cluster for its workload (batch ETL, interactive analytics, a dedicated BI connection) and shut it down when it's idle to stop accruing costs."
+  },
+  {
+   "term": "compute cluster",
+   "aliases": [
+    "compute clusters",
+    "cluster"
+   ],
+   "plain": "A pool of rented computing power that answers queries and then can be switched off.",
+   "why": "Shutting it off when idle is the easiest way to cut the bill.",
+   "source_url": "https://iomete.com/resources/user-guide/compute-clusters/overview",
+   "quote": "A compute cluster gives you dedicated CPU and memory, powered by Apache Spark, for running queries."
+  },
+  {
+   "term": "data governance",
+   "aliases": [
+    "governance"
+   ],
+   "plain": "The rules and records that keep data trustworthy, permitted and traceable.",
+   "why": "Regulated buyers cannot buy a platform that ignores it.",
+   "source_url": "https://iomete.com/resources/getting-started/platform-tour",
+   "quote": "Data Governance : Spark Catalogs , Data Security policies, and Audit logs."
+  },
+  {
+   "term": "data mesh",
+   "aliases": [
+    "mesh",
+    "domain ownership"
+   ],
+   "plain": "Letting each business team own and publish its own data for others to use.",
+   "why": "Large firms reorganising around teams use this language, so match it.",
+   "source_url": "https://iomete.com/resources/getting-started/what-is-iomete",
+   "quote": "Multi-Domain Support : Logical separation of teams, projects, or environments into domains, each with independent resources, members, and roles."
+  },
+  {
+   "term": "data product",
+   "aliases": [
+    "data products"
+   ],
+   "plain": "A ready-to-use dataset one team publishes for others to consume.",
+   "why": "It turns data into something with an owner, a promise and a user.",
+   "source_url": "https://iomete.com/resources/user-guide/iam/ras/domain-authorization",
+   "quote": "VIEW_DATA_PRODUCT \nView data products. \n\nMANAGE_DATA_PRODUCT \nCreate and manage data products."
+  },
+  {
+   "term": "semantic layer",
+   "aliases": [
+    "semantic model",
+    "metrics layer"
+   ],
+   "plain": "A shared dictionary of business terms so every report defines revenue the same way.",
+   "why": "It ends the meeting where three dashboards show three different numbers.",
+   "source_url": "https://iomete.com/resources/integrations/bi/power-bi/arrow-flight",
+   "quote": "Publish your report to the Power BI Service and open its semantic model's settings."
+  },
+  {
+   "term": "query federation",
+   "aliases": [
+    "federation",
+    "federated query"
+   ],
+   "plain": "Ask one question across several separate systems without copying them together first.",
+   "why": "It skips months of integration work and answers questions this week.",
+   "source_url": "https://iomete.com/resources/getting-started/what-is-iomete",
+   "quote": "Query Federation Engine : Seamlessly query data from multiple sources, including relational and NoSQL databases, and flat files without the need for complex ETL pipelines."
+  },
+  {
+   "term": "open source",
+   "aliases": [
+    "oss",
+    "apache licensed"
+   ],
+   "plain": "Software whose code is public, free to use and changeable by anyone.",
+   "why": "No licence fees and no single supplier controlling the roadmap.",
+   "source_url": "https://iomete.com/resources/deployment/ozone-deployment",
+   "quote": "Apache Ozone is an open-source (Apache License 2.0) distributed object store with an S3-compatible API."
+  },
+  {
+   "term": "streaming",
+   "aliases": [
+    "real-time",
+    "stream processing"
+   ],
+   "plain": "Data handled continuously as it arrives, rather than in nightly batches.",
+   "why": "Fraud alerts and live pricing only work if the data is fresh.",
+   "source_url": "https://iomete.com/resources/getting-started/architecture",
+   "quote": "Real-time data ingestion endpoints powered by Papyrus, a Rust-based ingestion engine."
+  },
+  {
+   "term": "data catalog",
+   "aliases": [
+    "catalog search",
+    "data discovery"
+   ],
+   "plain": "A searchable list of every table, with descriptions, owners and tags.",
+   "why": "Analysts stop asking where the data is, which saves weeks of work.",
+   "source_url": "https://iomete.com/resources/user-guide/data-catalog/overview",
+   "quote": "Instead of hunting through individual catalogs, the Data Catalog lets you search, browse, and tag every table from one place."
+  },
+  {
+   "term": "autoscaling",
+   "aliases": [
+    "auto-scaling",
+    "elastic scaling",
+    "hpa"
+   ],
+   "plain": "Adding machines automatically when work spikes, and removing them afterwards.",
+   "why": "It stops the buyer paying for idle servers all weekend.",
+   "source_url": "https://iomete.com/resources/getting-started/scalability",
+   "quote": "Horizontal Pod Autoscaling (HPA) lets individual services scale their replica count based on CPU or memory utilization."
+  },
+  {
+   "term": "jdbc",
+   "aliases": [
+    "odbc",
+    "jdbc driver"
+   ],
+   "plain": "The standard plug that lets dashboards and tools talk to a database.",
+   "why": "If it is missing, the buyer's favourite tool simply cannot connect.",
+   "source_url": "https://iomete.com/resources/getting-started/architecture",
+   "quote": "HiveServer2 (port 10000): JDBC /ODBC connections from BI tools, dbt , and other SQL clients"
+  }
+ ]
+}

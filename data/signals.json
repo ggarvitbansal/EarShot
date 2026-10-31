@@ -1,0 +1,317 @@
+{
+  "_note": "Hand-authored signal tables. Every source_url is checked against the crawled corpus at load time (see analyze.self_check).",
+  "off_record": [
+    {
+      "id": "pricing",
+      "tag": "Pricing",
+      "patterns": [
+        "pricing",
+        "cost",
+        "how much",
+        "price",
+        "per year",
+        "a year",
+        "thousand a year",
+        "license fee",
+        "budget for this",
+        "discount",
+        "per node",
+        "per core",
+        "terabyte per month",
+        "all in",
+        "discount",
+        "percent off",
+        "rebate",
+        "volume pricing"
+      ],
+      "why": "No price, discount or unit-cost figure appears anywhere in the public product documentation.",
+      "action": "Say: 'I'll send a written quote rather than improvise a number.'",
+      "severity": "block"
+    },
+    {
+      "id": "certification",
+      "tag": "Certification",
+      "patterns": [
+        "soc 2",
+        "soc2",
+        "iso 27001",
+        "iso27001",
+        "fedramp",
+        "pci dss",
+        "hipaa",
+        "certified",
+        "certification",
+        "pen test",
+        "penetration"
+      ],
+      "why": "The product docs do not state compliance certifications. Posture lives in the trust centre, and it changes.",
+      "action": "Say: 'Let me send the trust-centre link and current attestation in writing.'",
+      "severity": "block"
+    },
+    {
+      "id": "roadmap",
+      "tag": "Roadmap",
+      "patterns": [
+        "next release",
+        "roadmap",
+        "coming in q",
+        "will ship",
+        "by quarter",
+        "next quarter",
+        "ga in"
+      ],
+      "why": "Dated delivery promises are not in the public docs and are not yours to make on a call.",
+      "action": "Say: 'I'll confirm with product and put the date in writing.'",
+      "severity": "warn"
+    },
+    {
+      "id": "legal",
+      "tag": "Contract / legal",
+      "patterns": [
+        "sla",
+        "uptime guarantee",
+        "indemnity",
+        "liability",
+        "contract term",
+        "we guarantee",
+        "guarantee you",
+        "guaranteed",
+        "uptime guarantee",
+        "guarantees",
+        "within one hour",
+        "within 24 hours",
+        "response time guarantee",
+        "indemnify"
+      ],
+      "why": "Contractual commitments are legal documents, not product documentation.",
+      "action": "Say: 'That sits in the MSA — legal will confirm the exact wording.'",
+      "severity": "warn"
+    },
+    {
+      "id": "competitor",
+      "tag": "Competitor claim",
+      "patterns": [
+        "snowflake is",
+        "databricks is",
+        "cloudera is",
+        "they can't",
+        "competitor",
+        "cheaper than snowflake"
+      ],
+      "why": "Claims about a third party cannot be verified from IOMETE's own documentation.",
+      "action": "Say: 'I'd rather compare on your numbers than on their marketing.'",
+      "severity": "warn"
+    }
+  ],
+  "risks": [
+    {
+      "id": "security_gate",
+      "tag": "Security review gates the POC",
+      "patterns": [
+        "security review",
+        "soc 2",
+        "soc2",
+        "penetration",
+        "pen test",
+        "ciso",
+        "infosec",
+        "vendor risk"
+      ],
+      "why": "A named gate with a person attached. Nothing else moves until this clears.",
+      "severity": "high",
+      "owner": "AE + security"
+    },
+    {
+      "id": "unverified_claim_reached_buyer",
+      "tag": "Corrected claim already spoken",
+      "patterns": [
+        "__derived__"
+      ],
+      "why": "A claim the buyer heard has been contradicted. It must be corrected in writing before the next meeting.",
+      "severity": "high",
+      "owner": "AE"
+    },
+    {
+      "id": "procurement",
+      "tag": "Budget owner not in the room",
+      "patterns": [
+        "budget",
+        "procurement",
+        "risk committee",
+        "board",
+        "cfo",
+        "finance",
+        "approve"
+      ],
+      "why": "The person who can say yes is absent, so this call cannot close — it can only qualify.",
+      "severity": "medium",
+      "owner": "AE"
+    },
+    {
+      "id": "lockin_fear",
+      "tag": "Lock-in anxiety",
+      "patterns": [
+        "lock us in",
+        "lock-in",
+        "locked in",
+        "last vendor",
+        "exit",
+        "migrate away"
+      ],
+      "why": "A prior bad vendor experience is driving the decision. Answer with the exit path, not the features.",
+      "severity": "medium",
+      "owner": "AE"
+    },
+    {
+      "id": "mandate",
+      "tag": "Regulatory mandate",
+      "patterns": [
+        "regulator",
+        "regulators",
+        "regulatory",
+        "dora",
+        "gdpr",
+        "eu ai act",
+        "compliance",
+        "audit",
+        "sovereign"
+      ],
+      "why": "A compliance driver, not a preference. It makes the deal sticky once proven and unfundable if doubted.",
+      "severity": "medium",
+      "owner": "AE + buyer sponsor"
+    }
+  ],
+  "opportunities": [
+    {
+      "id": "slow_reports",
+      "tag": "Slow reporting job",
+      "patterns": [
+        "takes four hours",
+        "takes hours",
+        "takes all night",
+        "slow",
+        "still running",
+        "risk report",
+        "daily report",
+        "batch window"
+      ],
+      "capability": "Table maintenance + Spark tuning",
+      "pitch": "Compaction and orphan-file cleanup keep scan cost flat, so a job that degrades over months stops degrading.",
+      "source_url": "https://iomete.com/resources/user-guide/table-maintenance/overview"
+    },
+    {
+      "id": "many_sources",
+      "tag": "Data scattered across systems",
+      "patterns": [
+        "multiple systems",
+        "different systems",
+        "scattered",
+        "mainframe",
+        "oracle",
+        "sql server",
+        "postgres",
+        "csv exports",
+        "silos"
+      ],
+      "capability": "Query federation",
+      "pitch": "Query the source systems in place through Spark, without a first migration project.",
+      "source_url": "https://iomete.com/resources/reference/sql-quick-start/query-federation"
+    },
+    {
+      "id": "reporting_stack",
+      "tag": "Existing BI tools",
+      "patterns": [
+        "power bi",
+        "tableau",
+        "superset",
+        "metabase",
+        "redash",
+        "dashboard",
+        "reports"
+      ],
+      "capability": "BI connectors (Power BI / Tableau / Superset)",
+      "pitch": "The dashboards stay, the warehouse underneath changes. No retraining for the analysts.",
+      "source_url": "https://iomete.com/resources/integrations/bi/power-bi/overview"
+    },
+    {
+      "id": "real_time",
+      "tag": "Wants fresher data",
+      "patterns": [
+        "real time",
+        "real-time",
+        "streaming",
+        "kafka",
+        "cdc",
+        "near real time",
+        "every minute"
+      ],
+      "capability": "Structured streaming into Iceberg",
+      "pitch": "Kafka or CDC streams land in Iceberg tables continuously instead of in an overnight window.",
+      "source_url": "https://iomete.com/resources/user-guide/spark-jobs/streaming-jobs"
+    },
+    {
+      "id": "ml_ai",
+      "tag": "AI / ML ambitions",
+      "patterns": [
+        "machine learning",
+        "ml",
+        "ai",
+        "model",
+        "notebook",
+        "jupyter",
+        "predict",
+        "llm",
+        "feature"
+      ],
+      "capability": "Notebooks + Spark for model training",
+      "pitch": "Train against the same tables the warehouse reads, inside the same perimeter.",
+      "source_url": "https://iomete.com/resources/user-guide/notebook/using-jupyterlab"
+    },
+    {
+      "id": "pii",
+      "tag": "PII / regulated columns",
+      "patterns": [
+        "pii",
+        "personal data",
+        "customer data",
+        "sensitive",
+        "masking",
+        "row level",
+        "restricted"
+      ],
+      "capability": "Column-level masking + row-level security",
+      "pitch": "Analysts can query the table without seeing the columns they are not cleared for.",
+      "source_url": "https://iomete.com/resources/user-guide/data-security/overview"
+    },
+    {
+      "id": "pipeline_tooling",
+      "tag": "Existing pipeline tooling",
+      "patterns": [
+        "airflow",
+        "dbt",
+        "prefect",
+        "orchestrat",
+        "pipelines"
+      ],
+      "capability": "dbt + Airflow integrations",
+      "pitch": "Their existing DAGs keep working; only the storage layer moves.",
+      "source_url": "https://iomete.com/resources/integrations/dbt/getting-started-with-iomete-dbt"
+    },
+    {
+      "id": "audit_trail",
+      "tag": "Audit trail requirement",
+      "patterns": [
+        "audit",
+        "time travel",
+        "as of",
+        "month end",
+        "restat",
+        "lineage",
+        "trail"
+      ],
+      "capability": "Iceberg time travel",
+      "pitch": "Query any past snapshot of a table, which is exactly the evidence an auditor asks for.",
+      "source_url": "https://iomete.com/resources/reference/iceberg-tables/time-travel"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "deal": {
+    "name": "NorthBridge Bank — Platform evaluation",
+    "company": "NorthBridge Bank",
+    "industry": "Regulated banking",
+    "buyer_role": "Head of Data Platform",
+    "owner": "Alex Moreau (AE)",
+    "note": "Scripted replay of a real-shaped discovery call. Deliberately contains wrong, unsupported and off-record claims so the engine's verdicts are visible."
+  },
+  "speakers": {
+    "rep": { "name": "Alex Moreau", "role": "IOMETE AE" },
+    "buyer": { "name": "Priya Raman", "role": "Head of Data Platform, NorthBridge" },
+    "buyer2": { "name": "Marcus Lin", "role": "CISO, NorthBridge" }
+  },
+  "utterances": [
+    { "t": 2, "speaker": "buyer", "text": "Thanks for making time. Quick context: we're a regulated bank, about four thousand staff, and our regulators have become much stricter about where customer data physically sits." },
+    { "t": 14, "speaker": "rep", "text": "That's exactly who we were built for. IOMETE was founded in 2019 and we've been doing on-prem lakehouses since day one." },
+    { "t": 27, "speaker": "rep", "text": "The platform runs on Apache Spark, and the tables are Delta Lake, all on Kubernetes. You get the best of both worlds." },
+    { "t": 39, "speaker": "buyer", "text": "And where does our data actually live? Our security team will ask that in the first ten minutes." },
+    { "t": 51, "speaker": "rep", "text": "Your data never leaves your network. In fairness the control plane runs in our cloud, and only the data plane is in your environment." },
+    { "t": 66, "speaker": "rep", "text": "You can also run the whole thing air-gapped if you need to, with no outbound internet at all." },
+    { "t": 78, "speaker": "buyer2", "text": "That helps. What about SSO? We're on Okta and we use SCIM for provisioning." },
+    { "t": 89, "speaker": "rep", "text": "SAML and OIDC with Okta, and SCIM provisioning, are all supported out of the box." },
+    { "t": 103, "speaker": "buyer", "text": "Our current warehouse takes four hours to produce the daily risk report. Every morning it's still running when the desk opens." },
+    { "t": 118, "speaker": "rep", "text": "Table maintenance is usually where we win that back. Compaction and orphan file cleanup run as a built-in service, so query times don't degrade over time." },
+    { "t": 131, "speaker": "buyer", "text": "Who does that maintenance, us or you?" },
+    { "t": 140, "speaker": "rep", "text": "It's configurable, you set the thresholds and it runs. Also we're one hundred percent open source, so procurement can self-support the whole platform if they want." },
+    { "t": 155, "speaker": "buyer2", "text": "Our security review needs SOC 2 Type II and a penetration test summary before we're even allowed to start a POC." },
+    { "t": 168, "speaker": "rep", "text": "We're SOC 2 Type II certified, so that's not a problem." },
+    { "t": 180, "speaker": "buyer", "text": "And budget. Ballpark, what does this cost for forty terabytes?" },
+    { "t": 191, "speaker": "rep", "text": "For your size, call it around forty thousand a year, all in." },
+    { "t": 203, "speaker": "buyer", "text": "Okay. What would a POC look like in practice?" },
+    { "t": 214, "speaker": "rep", "text": "Two weeks. One namespace on your Kubernetes, we load one real table, you run the risk report query and compare it yourself." },
+    { "t": 230, "speaker": "buyer", "text": "Can we time-travel to see what the data looked like at month end, for the audit trail?" },
+    { "t": 242, "speaker": "rep", "text": "Yes, Iceberg snapshot time travel lets you query as of a timestamp or a snapshot ID. Auditors tend to like that one." },
+    { "t": 258, "speaker": "buyer", "text": "Last thing. Does this lock us in? Our board is sensitive after the last vendor." },
+    { "t": 270, "speaker": "rep", "text": "No. It's an open table format, Iceberg, so your data stays as Parquet files in your own bucket even if you leave." },
+    { "t": 284, "speaker": "buyer", "text": "Good. Send me the security documentation and a one-pager I can take to the risk committee on Thursday." }
+  ]
+}
