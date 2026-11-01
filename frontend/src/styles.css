@@ -411,7 +411,7 @@ body {
   .evidence blockquote, .sayinstead p, .note { font-size: 12.4px; }
   .risk small, .offer small, .term .why { font-size: 11.4px; }
   .q p { font-size: 12.2px; }
-  .board { gap: 9px; grid-template-columns: 0.9fr 1.22fr 1.02fr; }
+  .board { gap: 9px; grid-template-columns: 320px 1fr; }
   .colhead, .density, .questions, .panel { padding-left: 10px; padding-right: 10px; }
   .cards, .stream { padding: 9px; }
   .card { padding: 10px 11px; }
@@ -420,9 +420,9 @@ body {
 
 @media (max-width: 1150px) {
   .board {
-    grid-template-columns: 1fr 1.25fr;
-    grid-template-rows: 1fr auto;
-  }
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr;
+    }
   .buyerlane { grid-column: 1 / -1; max-height: 210px; }
   .strip { grid-template-columns: 1fr 1fr; height: auto; max-height: 150px; }
   .panel.next { grid-column: 1 / -1; }
@@ -509,3 +509,7 @@ body {
   color: var(--cyan); background: rgba(125, 211, 252, 0.08);
   padding: 1px 6px; border-radius: 999px;
 }
+
+/* fill horizontal space in the wide bot panel */
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 10px; }
+.sidebar .dealpanel { width: 100%; }
