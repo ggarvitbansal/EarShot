@@ -194,6 +194,12 @@ export default function App() {
                   <h2>Bot suggestions</h2>
                 </div>
                 <div className="boxbody">
+                  <div className="tabs">
+                    <button className={`tab ${tab === "claims" ? "on" : ""}`} onClick={() => setTab("claims")}>Claims <em>{shown.claims.length}</em></button>
+                    <button className={`tab ${tab === "jargon" ? "on" : ""}`} onClick={() => setTab("jargon")}>Jargon <em>{shown.jargon.length}</em></button>
+                    <button className={`tab ${tab === "deal" ? "on" : ""}`} onClick={() => setTab("deal")}>Deal <em>{risks.length + offers.length}</em></button>
+                  </div>
+{tab === "claims" && (
 <section className="col ledger">
               <div className="colhead">
                 <h2>Claims ledger</h2>
@@ -204,6 +210,8 @@ export default function App() {
                 {shown.claims.slice().reverse().map((c) => <ClaimCard key={c.id} c={c} />)}
               </div>
             </section>
+)}
+{tab === "jargon" && (
 <section className="col buyerlane">
               <div className="colhead">
                 <h2>Buyer lane</h2>
@@ -247,6 +255,8 @@ export default function App() {
                 ))}
               </div>
             </section>
+)}
+{tab === "deal" && (
                   <div className="dealpanel">
                     <DealStrip
             risks={risks}
@@ -255,6 +265,7 @@ export default function App() {
             grounded={shown.grounded}
           />
                   </div>
+)}
                 </div>
               </div>
             </aside>
