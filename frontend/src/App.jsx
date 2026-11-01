@@ -48,6 +48,7 @@ export default function App() {
   const [view, setView] = useState("call");
   const [brief, setBrief] = useState(null);
   const [liveOpen, setLiveOpen] = useState(false);
+  const [tab, setTab] = useState("claims");
   const transcriptRef = useRef(null);
 
   useEffect(() => {
@@ -187,7 +188,13 @@ export default function App() {
               </div>
             </section>
 
-            <section className="col ledger">
+            <aside className="sidebar">
+              <div className="box">
+                <div className="boxhead">
+                  <h2>Bot suggestions</h2>
+                </div>
+                <div className="boxbody">
+<section className="col ledger">
               <div className="colhead">
                 <h2>Claims ledger</h2>
                 <span className="sub">every factual claim, checked against the docs</span>
@@ -197,8 +204,7 @@ export default function App() {
                 {shown.claims.slice().reverse().map((c) => <ClaimCard key={c.id} c={c} />)}
               </div>
             </section>
-
-            <section className="col buyerlane">
+<section className="col buyerlane">
               <div className="colhead">
                 <h2>Buyer lane</h2>
                 <span className="sub">what the words actually mean</span>
@@ -241,14 +247,19 @@ export default function App() {
                 ))}
               </div>
             </section>
-          </div>
-
-          <DealStrip
+                  <div className="dealpanel">
+                    <DealStrip
             risks={risks}
             offers={offers}
             next={brief?.next_step || fallbackNext(shown)}
             grounded={shown.grounded}
           />
+                  </div>
+                </div>
+              </div>
+            </aside>
+          </div>
+
         </>
       )}
 
