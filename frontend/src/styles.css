@@ -423,17 +423,12 @@ body {
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr;
     }
-  .buyerlane { grid-column: 1 / -1; max-height: 210px; }
-  .strip { grid-template-columns: 1fr 1fr; height: auto; max-height: 150px; }
-  .panel.next { grid-column: 1 / -1; }
   .top { grid-template-columns: 180px 1fr auto; row-gap: 6px; }
   .controls { grid-column: 1 / -1; justify-content: flex-end; }
 }
 
 @media (max-width: 860px) {
-  .board { grid-template-columns: 1fr; grid-template-rows: auto auto auto; }
-  .transcript { max-height: 240px; }
-  .transcript, .ledger, .buyerlane { grid-column: 1; }
+  .board { grid-template-columns: 1fr; }
   .strip { grid-template-columns: 1fr; }
 }
 
